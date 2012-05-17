@@ -1,0 +1,124 @@
+/**
+ * DatePicker's css
+ *
+ * @version 1.0
+ * @author ggsddu.org
+ * @email ggsddu.org@gmail.com
+ */
+.datepicker {
+    border: 2px solid #06C;
+    color: #000;
+    background: #EEF;
+    font-family: simsun;
+    width: 180px;
+}
+
+.datepicker a {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    line-height: 18px;
+}
+
+.datepicker a:hover {
+    text-decoration: underline;
+}
+
+.datepicker input {
+    border: 1px solid #69C;
+    background: #EEF;
+    height: 16px;
+    font-size: 9px;
+    font-family: tahoma;
+    text-align: right;
+}
+
+.datepicker input.year {
+    width: 36px;
+}
+
+.datepicker input.time {
+    width: 16px;
+}
+
+.datepicker select {
+    background: #EEF;
+    height: 16px;
+    font-size: 9px;
+    font-family: tahoma;
+}
+
+.datepicker table {
+    width: 100%;
+    font-size: 12px;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.datepicker table tr {
+    height: 18px;
+}
+
+.datepicker table td {
+    text-align: center;
+}
+
+.datepicker table.dphead {
+    background: #06C;
+    color: #fff;
+}
+
+.datepicker table.dphead td {
+
+}
+
+.datepicker table.dphead a {
+    color: #FFF;
+}
+
+.datepicker table.dphead a:hover {
+    background-color: #CCF;
+}
+
+.datepicker table.dpcalendar {
+    border: 1px solid #69C;
+}
+
+.datepicker table.dpcalendar td {
+    border: 1px solid #CCF;
+}
+
+.datepicker table.dpcalendar tr.caltitle td {
+    border: 1px solid #69C;
+    font-weight: bold;
+    background: #CCF;
+}
+
+.datepicker table.dpcalendar a {
+
+}
+
+.datepicker table.dpcalendar a:hover {
+    background: #69C;
+    color: #FFF;
+}
+
+.datepicker table.dpcalendar a.today {
+    background: #CCF;
+}
+
+.datepicker table.dpcalendar a.selected {
+
+}
+
+.datepicker table.dpfoot {
+    background: #CCF;
+}
+
+.datepicker table.dpfoot a {
+
+}
+
+.datepicker table.dpfoot td.dpvalue {
+    border-top: 1px solid #69C;
+}
