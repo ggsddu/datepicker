@@ -6,7 +6,8 @@
  *   <input type="text" onfocus="pickDate(this, 'yyyy-mm-dd HH:mm')"/>
  *
  * @version 1.0
- * @author ggsddu.org
+ * @author ggsddu
+ * @url http://ggsddu.org/js-datepicker/
  * @email ggsddu.org@gmail.com
  */
 
