@@ -128,7 +128,7 @@ function DatePicker(field, format) {
         return;
     }
     this.version = "1.0";
-    this.copyright = "DatePicker " + this.version + "\n作者：欧阳军\n信箱：ihqtg@hotmail.com";
+    this.copyright = "DatePicker " + this.version + "\n作者：ggsddu\n信箱：ggsddu.org@gmail.com";
     this.inputField = field;
     this.dateFormat = format ? format : Setting.DATE_FORMAT;
 
@@ -340,12 +340,13 @@ DatePicker.prototype.initialize = function() {
 
     this.inputField.onblur = function(e) {
         e = e ? e : window.event;
+        /* has bug, disable
         if (e.clientX + document.body.scrollLeft < self.pickerDiv.offsetLeft
                 || e.clientX + document.body.scrollLeft > self.pickerDiv.offsetLeft + self.pickerDiv.offsetWidth
                 || e.clientY + document.body.scrollTop < self.pickerDiv.offsetTop
                 || e.clientY + document.body.scrollTop > self.pickerDiv.offsetTop + self.pickerDiv.offsetHeight) {
             self.hide();
-        }
+        }*/
     }
     this.inputField.onkeydown = function(e) {
         e = e ? e : window.event;
