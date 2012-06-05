@@ -99,14 +99,6 @@ var Utils = {
             t += p.offsetTop;
         } while (p = p.offsetParent);
         return {left: l, top: t};
-    },    
-    belong: function(sunEl, parentEl){
-        var el = sunEl;
-        do {
-            if (el == parentEl)
-                return true;
-        } while (el = el.parentElement);
-        return false;
     },
     generateElement: function(tag, attrs, content) {
         var fragment = document.createElement(tag);
@@ -344,9 +336,9 @@ DatePicker.prototype.initialize = function() {
 
     pickerDiv.appendChild(footTable);
 
-    document.body.appendChild(pickerDiv);    
-    
-    this.inputField.onblur = function(e){
+    document.body.appendChild(pickerDiv);
+
+    this.inputField.onblur = function(e) {
         e = e ? e : window.event;
         var browser = navigator.userAgent;
         if (browser.indexOf('MSIE') != -1) {
@@ -355,13 +347,13 @@ DatePicker.prototype.initialize = function() {
                 self.hide();
         }
     }
-    
+
     this.inputField.onkeydown = function(e) {
         e = e ? e : window.event;
         if (Setting.KEY_TAB == e.keyCode) {
             self.hide();
         }
-    }    
+    }
 }
 
 /**
