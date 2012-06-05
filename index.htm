@@ -14,7 +14,9 @@
     <script type="text/javascript" src="datepicker.js"></script>
   </head>
   
-  <body>
-    <input type="text" onfocus="pickDate(this)"/>
+  <body> 
+    <input type="text" id="date1" onfocus="pickDate(this)"/><br/>
+    <input type="text" id="date2"/><button onclick="pickDate(document.getElementById('date2'))">...</button><br/>
+    <input type="text" id="date3" onfocus="pickDate(this, 'yyyy-MM-dd HH:mm')"/><br/>
   </body>
 </html>

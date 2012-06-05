@@ -99,7 +99,7 @@ var Utils = {
             t += p.offsetTop;
         } while (p = p.offsetParent);
         return {left: l, top: t};
-    },
+    },    
     belong: function(sunEl, parentEl){
         var el = sunEl;
         do {
@@ -344,23 +344,24 @@ DatePicker.prototype.initialize = function() {
 
     pickerDiv.appendChild(footTable);
 
-    document.body.appendChild(pickerDiv);
-
-    document.onclick = function(e){
+    document.body.appendChild(pickerDiv);    
+    
+    this.inputField.onblur = function(e){
         e = e ? e : window.event;
-        if(Utils.belong(e.srcElement, self.pickerDiv) 
-          || e.srcElement == self.inputField){
-        }else{
-            self.hide();
+        var browser = navigator.userAgent;
+        if (browser.indexOf('MSIE') != -1) {
+            if (e.offsetX < 0 || e.offsetX > self.pickerDiv.offsetWidth
+               || e.offsetY < 0 || e.offsetY > self.inputField.offsetHeight + self.pickerDiv.offsetHeight) 
+                self.hide();
         }
-    } 
+    }
     
     this.inputField.onkeydown = function(e) {
         e = e ? e : window.event;
         if (Setting.KEY_TAB == e.keyCode) {
             self.hide();
         }
-    }
+    }    
 }
 
 /**
@@ -434,14 +435,14 @@ DatePicker.prototype.refresh = function() {
 }
 
 /**
- * 显示DatePicker
+ * 隐藏DatePicker
  */
 DatePicker.prototype.hide = function() {
     this.pickerDiv.style.visibility = "hidden";
     this.bgIframe.style.visibility = "hidden";
 }
 /**
- * 隐藏DatePicker
+ * 显示DatePicker
  */
 DatePicker.prototype.show = function() {
     this.refresh();
