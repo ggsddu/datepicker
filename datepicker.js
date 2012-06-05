@@ -105,7 +105,7 @@ var Utils = {
         do {
             if (el == parentEl)
                 return true;
-        } while (el = el.offsetParent);
+        } while (el = el.parentElement);
         return false;
     },
     generateElement: function(tag, attrs, content) {
@@ -349,22 +349,12 @@ DatePicker.prototype.initialize = function() {
     document.onclick = function(e){
         e = e ? e : window.event;
         if(Utils.belong(e.srcElement, self.pickerDiv) 
-          || e.srcElement == self.inputField
-          || e.srcElement == self.yearSpan
-          || e.srcElement == self.monthSpan ){
+          || e.srcElement == self.inputField){
         }else{
             self.hide();
         }
     } 
-    /*this.inputField.onblur = function(e) {
-        e = e ? e : window.event;
-        if (e.offsetX < 0
-                || e.offsetX > self.pickerDiv.offsetWidth
-                || e.offsetY < 0
-                || e.clientY > self.inputField.offsetHeight + self.pickerDiv.offsetHeight) {
-            self.hide();
-        }
-    }*/
+    
     this.inputField.onkeydown = function(e) {
         e = e ? e : window.event;
         if (Setting.KEY_TAB == e.keyCode) {
