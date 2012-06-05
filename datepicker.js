@@ -100,6 +100,14 @@ var Utils = {
         } while (p = p.offsetParent);
         return {left: l, top: t};
     },
+    belong: function(sunEl, parentEl){
+        var el = sunEl;
+        do {
+            if (el == parentEl)
+                return true;
+        } while (el = el.offsetParent);
+        return false;
+    },
     generateElement: function(tag, attrs, content) {
         var fragment = document.createElement(tag);
         for (var prop in attrs) {
@@ -338,16 +346,25 @@ DatePicker.prototype.initialize = function() {
 
     document.body.appendChild(pickerDiv);
 
-    this.inputField.onblur = function(e) {
+    document.onclick = function(e){
         e = e ? e : window.event;
-        /* has bug, disable
-        if (e.clientX + document.body.scrollLeft < self.pickerDiv.offsetLeft
-                || e.clientX + document.body.scrollLeft > self.pickerDiv.offsetLeft + self.pickerDiv.offsetWidth
-                || e.clientY + document.body.scrollTop < self.pickerDiv.offsetTop
-                || e.clientY + document.body.scrollTop > self.pickerDiv.offsetTop + self.pickerDiv.offsetHeight) {
+        if(Utils.belong(e.srcElement, self.pickerDiv) 
+          || e.srcElement == self.inputField
+          || e.srcElement == self.yearSpan
+          || e.srcElement == self.monthSpan ){
+        }else{
             self.hide();
-        }*/
-    }
+        }
+    } 
+    /*this.inputField.onblur = function(e) {
+        e = e ? e : window.event;
+        if (e.offsetX < 0
+                || e.offsetX > self.pickerDiv.offsetWidth
+                || e.offsetY < 0
+                || e.clientY > self.inputField.offsetHeight + self.pickerDiv.offsetHeight) {
+            self.hide();
+        }
+    }*/
     this.inputField.onkeydown = function(e) {
         e = e ? e : window.event;
         if (Setting.KEY_TAB == e.keyCode) {
@@ -394,7 +411,9 @@ DatePicker.prototype.refresh = function() {
 
             if (tempDate.getMonth() == this.valueDate.getMonth()) {
                 var dateLink = Utils.generateElement("a", {href:"javascript:",title:tempDate.format(Setting.DATE_FORMAT)}, tempDate.getDate());
-                if (Utils.equalsDateOnly(tempDate, today)) {
+                if (Utils.equalsDateOnly(tempDate, self.valueDate)){
+                    dateLink.className = "vlday";
+                } else if (Utils.equalsDateOnly(tempDate, today)) {
                     dateLink.className = "today";
                 }
                 dateLink.onclick = function() {

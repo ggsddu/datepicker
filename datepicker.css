@@ -110,6 +110,10 @@
     background: #CCF;
 }
 
+.datepicker table.dpcalendar a.vlday {
+    background: #FCF;
+}
+
 .datepicker table.dpcalendar a.selected {
 
 }
